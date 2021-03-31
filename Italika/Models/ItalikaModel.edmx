@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BRANCHBITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BRANCHBIT.dbo.BR_ITALIKAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="BR_ITALIKAS">
+          <Key>
+            <PropertyRef Name="ID_ITALIKA" />
+          </Key>
+          <Property Name="ID_ITALIKA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SKU" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="FERT" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MODELO" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="TIPO" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="NUM_SERIE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FECHA" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="ActualizarItalika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iD_ITALIKA" Type="int" Mode="In" />
+          <Parameter Name="sKU" Type="varchar" Mode="In" />
+          <Parameter Name="fERT" Type="varchar" Mode="In" />
+          <Parameter Name="mODELO" Type="varchar" Mode="In" />
+          <Parameter Name="tIPO" Type="varchar" Mode="In" />
+          <Parameter Name="nUM_SERIE" Type="varchar" Mode="In" />
+          <Parameter Name="fECHA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="AgregarItalika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sKU" Type="varchar" Mode="In" />
+          <Parameter Name="fERT" Type="varchar" Mode="In" />
+          <Parameter Name="mODELO" Type="varchar" Mode="In" />
+          <Parameter Name="tIPO" Type="varchar" Mode="In" />
+          <Parameter Name="nUM_SERIE" Type="varchar" Mode="In" />
+          <Parameter Name="fECHA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="BuscarItalika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iD_ITALIKA" Type="int" Mode="In" />
+          <Parameter Name="bUSCAR" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="EliminarItalika" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="iD_ITALIKA" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="BRANCHBITModelStoreContainer">
+          <EntitySet Name="BR_ITALIKAS" EntityType="Self.BR_ITALIKAS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BR_ITALIKAS].[ID_ITALIKA] AS [ID_ITALIKA], 
+    [BR_ITALIKAS].[SKU] AS [SKU], 
+    [BR_ITALIKAS].[FERT] AS [FERT], 
+    [BR_ITALIKAS].[MODELO] AS [MODELO], 
+    [BR_ITALIKAS].[TIPO] AS [TIPO], 
+    [BR_ITALIKAS].[NUM_SERIE] AS [NUM_SERIE], 
+    [BR_ITALIKAS].[FECHA] AS [FECHA]
+    FROM [dbo].[BR_ITALIKAS] AS [BR_ITALIKAS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BRANCHBITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BR_ITALIKAS">
+          <Key>
+            <PropertyRef Name="ID_ITALIKA" />
+          </Key>
+          <Property Name="ID_ITALIKA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SKU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FERT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODELO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_SERIE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="BRANCHBITEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BR_ITALIKAS" EntityType="Self.BR_ITALIKAS" />
+          <FunctionImport Name="BuscarItalika" EntitySet="BR_ITALIKAS" ReturnType="Collection(BRANCHBITModel.BR_ITALIKAS)">
+            <Parameter Name="iD_ITALIKA" Mode="In" Type="Int32" />
+            <Parameter Name="bUSCAR" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="BuscarItalika_Result">
+          <Property Type="Int32" Name="ID_ITALIKA" Nullable="false" />
+          <Property Type="String" Name="SKU" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="FERT" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MODELO" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="TIPO" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="NUM_SERIE" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="FECHA" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BRANCHBITModelStoreContainer" CdmEntityContainer="BRANCHBITEntities">
+          <EntitySetMapping Name="BR_ITALIKAS">
+            <EntityTypeMapping TypeName="BRANCHBITModel.BR_ITALIKAS">
+              <MappingFragment StoreEntitySet="BR_ITALIKAS">
+                <ScalarProperty Name="ID_ITALIKA" ColumnName="ID_ITALIKA" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="FERT" ColumnName="FERT" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="NUM_SERIE" ColumnName="NUM_SERIE" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="BRANCHBITModel.BR_ITALIKAS">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="BRANCHBITModel.Store.AgregarItalika" >
+                  <ScalarProperty Name="FECHA" ParameterName="fECHA" />
+                  <ScalarProperty Name="NUM_SERIE" ParameterName="nUM_SERIE" />
+                  <ScalarProperty Name="TIPO" ParameterName="tIPO" />
+                  <ScalarProperty Name="MODELO" ParameterName="mODELO" />
+                  <ScalarProperty Name="FERT" ParameterName="fERT" />
+                  <ScalarProperty Name="SKU" ParameterName="sKU" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="BRANCHBITModel.Store.ActualizarItalika" >
+                  <ScalarProperty Name="FECHA" ParameterName="fECHA" Version="Current" />
+                  <ScalarProperty Name="NUM_SERIE" ParameterName="nUM_SERIE" Version="Current" />
+                  <ScalarProperty Name="TIPO" ParameterName="tIPO" Version="Current" />
+                  <ScalarProperty Name="MODELO" ParameterName="mODELO" Version="Current" />
+                  <ScalarProperty Name="FERT" ParameterName="fERT" Version="Current" />
+                  <ScalarProperty Name="SKU" ParameterName="sKU" Version="Current" />
+                  <ScalarProperty Name="ID_ITALIKA" ParameterName="iD_ITALIKA" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="BRANCHBITModel.Store.EliminarItalika" >
+                  <ScalarProperty Name="ID_ITALIKA" ParameterName="iD_ITALIKA" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BuscarItalika" FunctionName="BRANCHBITModel.Store.BuscarItalika">
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
